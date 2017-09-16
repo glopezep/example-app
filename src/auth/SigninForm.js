@@ -31,9 +31,12 @@ class SigninForm extends Component {
       if (!localStorage.token) localStorage.token = token
 
       const { data } = await verifyTokenMutation({ variables: { token }})
-      console.log(data)
 
-      this.props.history.push('/')
+      if (data.verifyToken.group.name !== 'Admin') {
+        this.props.history.push('/')
+      } else {
+        this.props.history.push('/admin')
+      }
     } catch (e) {
       alert(e)
     }
@@ -67,6 +70,7 @@ mutation authenticate($username: String!, $password: String!) {
 const verifyTokenMutation = gql`
 mutation verifyToken($token: String!) {
   verifyToken(token: $token) {
+    username
     group {
       name
     }

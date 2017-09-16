@@ -9,10 +9,10 @@ import PrivateRoute from './components/PrivateRoute'
 const Page = () => (
   <Router>
     <main>
-      <PrivateRoute exact path='/' component={Home} />
-      <PrivateRoute exact path='/admin' component={Admin}/>
       <Route exact path='/signin' component={Signin}/>
       <Route exact path='/signup' component={Signup}/>
+      <PrivateRoute exact path='/' component={Home} />
+      <PrivateRoute exact path='/admin' component={Admin}/>
     </main>
   </Router>
 )
