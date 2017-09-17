@@ -8,7 +8,7 @@ class Admin extends Component {
 
   logout () {
     if (localStorage.token) delete localStorage.token
-    this.props.history.push('/')
+    this.props.history.push('/signin')
   }
 
   render () {
@@ -75,5 +75,6 @@ class Admin extends Component {
     )
   }
 }
+
 
 export default Admin
