@@ -5,14 +5,16 @@ const RedirectUser = (props) => {
   if (!props.isAdmin) {
     return (
       <Redirect to={{
-        pathname: '/'
+        pathname: '/',
+        state: { isAdmin: props.isAdmin }
       }}/>
     )
   }
 
   return (
     <Redirect to={{
-      pathname: '/admin'
+      pathname: '/admin',
+      state: { isAdmin: props.isAdmin }
     }}/>
   )
 }

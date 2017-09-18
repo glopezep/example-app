@@ -24,6 +24,7 @@ class Signin extends Component {
     const username = formData.get('username')
     const password = formData.get('password')
     const { authenticateMutation, verifyTokenMutation } = this.props
+    let groupName = ''
 
     try {
       const authenticateResponse = await authenticateMutation({
@@ -34,7 +35,11 @@ class Signin extends Component {
         variables: { token: authenticateResponse.data.authenticate.token }
       })
 
-      const groupName = verifyTokenResponse.data.verifyToken.group.name
+
+      if (verifyTokenResponse.data.verifyToken.group) {
+        groupName = verifyTokenResponse.data.verifyToken.group.name
+      }
+
       const isAdmin = groupName === 'Admin'
 
       localStorage.token = authenticateResponse.data.authenticate.token

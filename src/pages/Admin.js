@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom'
 
 class Admin extends Component {
   constructor (props) {
@@ -12,6 +13,10 @@ class Admin extends Component {
   }
 
   render () {
+    if (!this.props.location.state || !this.props.location.state.isAdmin) {
+      return <Redirect to={{ pathname: '/' }} />
+    }
+
     return (
       <div>
         <h2> Manage Users</h2>

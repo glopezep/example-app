@@ -11,7 +11,7 @@ const Page = () => (
     <Switch>
       <Route exact path='/signin' component={Signin}/>
       <Route exact path='/signup' component={Signup}/>
-      <PrivateRoute exact path='/admin' component={Admin}/>
+      <PrivateRoute exact path='/admin' component={Admin} admin={true}/>
       <PrivateRoute exact path='/' component={Home} />
     </Switch>
   </Router>
