@@ -9,6 +9,11 @@ import {
 class UserList extends Component {
   constructor (props) {
     super(props)
+    this.edit = this.edit.bind(this)
+  }
+
+  edit (e, id) {
+    console.log(id)
   }
 
   render () {
@@ -35,7 +40,7 @@ class UserList extends Component {
     return (
       <tbody>
         {this.props.data.users.map(user => (
-          <User key={user.id} {...user} />
+          <User key={user.id} {...user} edit={(e) => this.edit(e, user.id)}/>
         ))}
       </tbody>
     )
