@@ -5,7 +5,7 @@ const SigninForm = (props) => (
   <form onSubmit={props.authenticate}>
       <h2>Sign in</h2>
       <p>Username: <input type="text" name="username" /></p>
-      <p>Password: <input type="text" name="password" /></p>
+      <p>Password: <input type="password" name="password" /></p>
       <button>Login</button>
       <Link to='/signup'>
         <button>Signup</button>

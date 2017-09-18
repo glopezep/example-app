@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
+import SignupForm from '../auth/containers/SignupForm'
+import UserList from '../users/components/UserList'
 
 class Admin extends Component {
   constructor (props) {
@@ -22,56 +24,22 @@ class Admin extends Component {
         <h2> Manage Users</h2>
         <button onClick={this.logout}>logout</button>
         <div>
-          <form name="add-user-form" >
-            <p>Add user: <input type="text" name="add-user" />   <button > Add</button></p>
-          </form>
+          <SignupForm title='Add an user' />
         </div>
         <div>
           <form name="add-user-form" >
             <table>
-              <tbody>
+              <thead>
                 <tr>
                   <th>Full Name</th>
                   <th>Username </th>
                   <th>Email</th>
-                  <th>Password</th>
-                  <th>Avatar</th>
                   <th>isActive</th>
                   <th>Group</th>
                   <th>Remove</th>
                 </tr>
-                <tr>
-                  <td>Full Name</td>
-                  <td>Username </td>
-                  <td>Email</td>
-                  <td>Password</td>
-                  <td>Avatar</td>
-                  <td>isActive</td>
-                  <td>Group</td>
-                  <td><input type="checkbox" /> </td>
-
-                </tr>
-                <tr>
-                  <td>Full Name</td>
-                  <td>Username </td>
-                  <td>Email</td>
-                  <td>Password</td>
-                  <td>Avatar</td>
-                  <td>isActive</td>
-                  <td>Group</td>
-                  <td><input type="checkbox" /> </td>
-                </tr>
-                <tr>
-                  <td>Full Name</td>
-                  <td>Username </td>
-                  <td>Email</td>
-                  <td>Password</td>
-                  <td>Avatar</td>
-                  <td>isActive</td>
-                  <td>Group</td>
-                  <td><input type="checkbox" /> </td>
-                </tr>
-              </tbody>
+              </thead>
+              <UserList users={[1, 2, 3]}/>
             </table>
             <input type="submit" />
           </form>
